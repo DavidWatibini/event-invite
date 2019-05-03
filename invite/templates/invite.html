@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+{% load socialaccount %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <a href=""><h6>login</h6></a>
+    <a href="{% provider_login_url "google" process="connect" %}"><h6>login</h6></a>
   </body>
 </html>
