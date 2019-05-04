@@ -13,7 +13,7 @@ for provider in providers.registry.get_list():
     providers_urlpatterns += getattr(prov_mod, 'urlpatterns', [])
 
 urlpatterns=[
-    url(r'^index$',views.index,name = 'index'),
+    url(r'',views.index,name = 'index'),
     # url(r'',views.invite,name='invite'),
     url(r'^auth/', include(providers_urlpatterns)),
     url(r'^confirm-email/(?P<key>[-:\w]+)/$', confirm_email, name='account_confirm_email'),
