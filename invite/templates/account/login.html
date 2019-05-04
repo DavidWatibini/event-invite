@@ -1,30 +1,41 @@
 <!DOCTYPE html>
+{% load static %}
 {% load i18n %}
 {% load account socialaccount %}
 
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Andika|Gurajada|Marcellus+SC|Marck+Script|Saira+Condensed" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Ivite</title>
   </head>
   <body>
-    {% get_providers as socialaccount_providers %}
+    <div class="container-fluid">
+      <div class="bg-image">
+        <img src="https://www.anu.edu.au/files/styles/anu_full_920_518/public/event/Graduation1image.jpg?itok=PyIwRH2B">
+      </div>
+      <div class="login">
+        {% get_providers as socialaccount_providers %}
 
-    {% if socialaccount_providers %}
-    <h4>See Invite via</h4>
-    <div class="socialaccount_ballot">
+        {% if socialaccount_providers %}
+        <h1>See Your Invite Via</h1>
+        <div class="socialaccount_ballot">
 
-      <ul class="socialaccount_providers">
-        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-      </ul>
+          <ul class="socialaccount_providers">
+            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+          </ul>
 
+        </div>
+
+        {% include "socialaccount/snippets/login_extra.html" %}
+
+        {% else %}
+      </div>
+      <p>{% blocktrans %}If you have not created an account yet, then please
+      <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+      {% endif %}
     </div>
-
-    {% include "socialaccount/snippets/login_extra.html" %}
-
-    {% else %}
-    <p>{% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-    {% endif %}
   </body>
 </html>
