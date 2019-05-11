@@ -14,12 +14,13 @@ for provider in providers.registry.get_list():
 
 urlpatterns=[
     url(r'^index$',views.index,name = 'index'),
-    # url(r'',views.invite,name='invite'),
+    url(r'^landing$',views.landing,name='landing'),
+    url(r'^create$',views.create,name='create'),
     url(r'^auth/', include(providers_urlpatterns)),
     url(r'^confirm-email/(?P<key>[-:\w]+)/$', confirm_email, name='account_confirm_email'),
     url(r'^$', login, name='account_login'),
     url(r'^logout/$', logout, name='account_logout'),
-    url(r'^signup/$', login, name='account_signup'),  # disable email signup
+    url(r'^signup/$', login, name='account_signup'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

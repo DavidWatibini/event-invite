@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'invite',
-    'bootstrap3',
+    'bootstrap4',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

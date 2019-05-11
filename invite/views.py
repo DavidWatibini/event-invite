@@ -9,3 +9,11 @@ def index(request):
 def invite(request):
 
     return render(request,'invite.html')
+
+def landing(request):
+
+    return render(request,'landing.html')
+
+def create(request):
+
+    return render(request,'create.html')
